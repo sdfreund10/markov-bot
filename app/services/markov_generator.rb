@@ -2,7 +2,7 @@
 
 class MarkovGenerator
   def initialize(input_string)
-    @input = input_string.squish
+    @input = input_string
   end
 
   def split_string
@@ -11,19 +11,23 @@ class MarkovGenerator
 
   def dictionary
     @dictionary ||= begin
-      split_string.each_cons(3).inject({}) do |dict, (word1, word2, word3)|
-        dict[[word1, word2]] ||= Dictionary.new
-        dict[[word1, word2]].add_word(word3)
+      split_string.each_cons(2).inject({}) do |dict, (word1, word2)|
+        dict[word1] ||= Dictionary.new
+        dict[word1].add_word(word2)
         dict
       end
     end
   end
 
   def generate_sentence
-    sentence = dictionary.keys.sample(2)
+    sentence = [seeds.sample]
     until [".", "?", "!"].include? sentence.last
-      sentence << dictionary[sentence.last].generate_word.first
+      sentence << dictionary[sentence.last].generate_word
     end
     sentence
+  end
+
+  def seeds
+    @input.split(/\.\s/).map { |sentence| sentence.split.first }
   end
 end
