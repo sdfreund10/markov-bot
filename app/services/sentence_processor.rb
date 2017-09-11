@@ -11,7 +11,7 @@ class SentenceProcessor
     end
   end
 
-  def adds_seeds
+  def add_seeds
     seeds.each do |word|
       Seed.create_or_increment(word)
     end
