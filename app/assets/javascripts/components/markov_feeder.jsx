@@ -14,12 +14,14 @@ class MarkovFeeder extends React.Component {
   }
 
   handleSubmit(event) {
+    event.preventDefault();
     $.ajax({
       url: '/sentence_processor',
       type: 'POST',
-      data: this.state.value
-    })
-    alert('A name was submitted: ' + this.state.value);
+      data: { text: this.state.value }
+    });
+
+    this.setState({ value: "" })
   }
 
   render() {

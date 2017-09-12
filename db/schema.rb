@@ -10,13 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170904234713) do
+ActiveRecord::Schema.define(version: 20170912015003) do
 
   create_table "seeds", force: :cascade do |t|
     t.string "word"
     t.integer "count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["word"], name: "index_seeds_on_word"
   end
 
   create_table "sequences", force: :cascade do |t|
@@ -25,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170904234713) do
     t.integer "count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["current_word", "next_word"], name: "index_sequences_on_current_word_and_next_word"
   end
 
 end
