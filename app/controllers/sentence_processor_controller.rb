@@ -1,6 +1,5 @@
 class SentenceProcessorController < ApplicationController
-  def new
-  end
+  def new; end
 
   def create
     processor = SentenceProcessor.new(params["text"])
