@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'markov_bot/index'
+  root 'markov_bot#index'
   resources :sentence_processor, only: [:create]
   resources :sentence_generators, only: [:create]
 
