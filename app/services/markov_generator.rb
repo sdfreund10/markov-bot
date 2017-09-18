@@ -11,10 +11,9 @@ class MarkovGenerator
 
   def dictionary
     @dictionary ||= begin
-      split_string.each_cons(2).inject({}) do |dict, (current, following)|
+      split_string.each_cons(2).each_with_object({}) do |(_current, _following), dict|
         dict[word1] ||= Dictionary.new
         dict[word1].add_word(word2)
-        dict
       end
     end
   end

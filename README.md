@@ -61,7 +61,7 @@ to do that.
 These are the things I need/would like to do, roughly in order
 
 - ~~Add a button to generate a sentence~~
-- Deploy to Heroku
+- ~~Deploy to Heroku~~
 - Add loading indicators
 - Css the crap out of the app
 - Add a link to this repo

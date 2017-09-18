@@ -15,13 +15,12 @@ class SentenceGenerator
   end
 
   def create_dictionary
-    Sequence.all.inject({}) do |dictionary, sequence|
+    Sequence.all.each_with_object({}) do |sequence, dictionary|
       dictionary[sequence.current_word] ||= Generator.new
 
       dictionary[sequence.current_word].add(
         sequence.next_word => sequence.count
       )
-      dictionary
     end
   end
 
