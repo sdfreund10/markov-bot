@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Generator do
   before do
@@ -9,7 +9,7 @@ RSpec.describe Generator do
   describe "generator" do
     it "converts hash values to rolling sum" do
       expect(@gen.generator).to eq(
-        { "test" => 5, "dictionary" => 8, "hash" => 10 }
+        "test" => 5, "dictionary" => 8, "hash" => 10
       )
     end
   end
