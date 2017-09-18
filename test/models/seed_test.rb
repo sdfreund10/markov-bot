@@ -1,7 +1,6 @@
-require 'test_helper'
+require "test_helper"
 
 class SeedTest < ActiveSupport::TestCase
-
   test "create_or_increment created new records" do
     Seed.create_or_increment("test")
 
