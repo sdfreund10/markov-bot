@@ -1,4 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe SentenceProcessor do
   before do
@@ -17,14 +19,14 @@ RSpec.describe SentenceProcessor do
 
   describe "add_seeds" do
     it "creates new seeds" do
-      expect{@proc.add_seeds}.to change{Seed.count}.by 2
+      expect { @proc.add_seeds }.to change { Seed.count }.by 2
     end
 
     it "adds new seeds" do
       @proc.add_seeds
       processor = SentenceProcessor.new("Have another sentence!")
 
-      expect{processor.add_seeds}.to change{Seed.count}.by 0
+      expect { processor.add_seeds }.to change { Seed.count }.by 0
 
       expect(Seed.find_by(word: "Have").count).to eq 2
     end
@@ -33,7 +35,7 @@ RSpec.describe SentenceProcessor do
   describe "create_sequences" do
     it "creates sequences" do
       # 10 uniq words/puntuation
-      expect{@proc.create_sequences}.to change{Sequence.count}.by 10
+      expect { @proc.create_sequences }.to change { Sequence.count }.by 10
 
       expect(Sequence.pluck(:current_word)).to match_array(
         @test_sentence.downcase.tr(".", "").split(" ") + ["."]
