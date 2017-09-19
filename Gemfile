@@ -24,8 +24,8 @@ gem "slim-rails"
 gem "rails_12factor"
 
 group :development, :test do
-  gem "pry-byebug"
   gem "capybara", "~> 2.13"
+  gem "pry-byebug"
   gem "rspec-rails", "~> 3.6"
   gem "selenium-webdriver"
 end
@@ -39,4 +39,4 @@ group :development do
   gem "spring-watcher-listen", "~> 2.0.0"
 end
 
-gem "tzinfo-data", platforms: %i(mingw mswin x64_mingw jruby)
+gem "tzinfo-data", platforms: %i[mingw mswin x64_mingw jruby]
