@@ -6,10 +6,10 @@ git_source(:github) do |repo_name|
 end
 
 gem "pg", group: :production
-gem "rails", "~> 5.1.2"
 gem "puma", "~> 3.7"
-gem "sqlite3", group: :development
+gem "rails", "~> 5.1.2"
 gem "sass-rails", "~> 5.0"
+gem "sqlite3", group: :development
 gem "uglifier", ">= 1.3.0"
 
 gem "coffee-rails", "~> 4.2"
