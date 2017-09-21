@@ -5,38 +5,26 @@ class Generator extends React.Component {
       isLoading: false,
       sentence: ''
     };
-  }
+  };
 
-  generateSentence () {
-    this.setState({ isLoading: true });
-
-    var sentence;
-
+  generateSentence() {
+    var self = this;
     $.ajax({
       url: '/sentence_generators',
-      type: "POST",
-      success: (response) => {
-        this.setState({ sentence: response.sentence });
-      }
+      type: "POST"
+    }).done(function (response){
+      self.setState({ sentence: response.sentence })
+      return(response.sentence);
     });
-    console.log(this.state);
-    this.setState({ isLoading: false });
-  }
+  };
 
   render() {
-    if (this.state.sentence.length === 0) {
-      return <button className='btn btn-default' type='clear' onClick={this.generateSentence.bind(this)}>
-        Generate sentence!
-      </button>
-    } else {
-      return(
-        <div>
-          <button className='btn btn-default' type='clear' onClick={this.generateSentence.bind(this)}>
-            Generate another!
-          </button>
-          <h3>{this.state.sentence}</h3>
-        </div>
-      )
-    }
-  }
+    return(
+      <div>
+        <h3 className="h3">{this.state.sentence}</h3>
+        <GenerateButton handleClick={this.generateSentence.bind(this)}
+          text="Generate sentence!"/>
+      </div>
+    )
+  };
 }
