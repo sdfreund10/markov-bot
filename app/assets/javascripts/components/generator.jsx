@@ -11,7 +11,8 @@ class Generator extends React.Component {
     var self = this;
     $.ajax({
       url: '/sentence_generators',
-      type: "POST"
+      type: "POST",
+      data: { user: this.props.user }
     }).done(function (response){
       self.setState({ sentence: response.sentence })
       return(response.sentence);

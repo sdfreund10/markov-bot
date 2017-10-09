@@ -105,6 +105,10 @@ GEM
     mini_portile2 (2.2.0)
     minitest (5.10.3)
     multi_json (1.12.2)
+    nikkou (0.0.5)
+      activesupport
+      nokogiri
+      tzinfo
     nio4r (2.1.0)
     nokogiri (1.8.0)
       mini_portile2 (~> 2.2.0)
@@ -246,6 +250,8 @@ DEPENDENCIES
   jbuilder (~> 2.5)
   jquery-rails
   listen (>= 3.0.5, < 3.2)
+  nikkou
+  nokogiri
   pg
   pry-byebug
   puma (~> 3.7)

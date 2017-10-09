@@ -19,7 +19,7 @@ class TextSubmitter extends React.Component {
     $.ajax({
       url: '/sentence_processor',
       type: 'POST',
-      data: { text: self.state.value }
+      data: { text: self.state.value, user: self.props.user }
     }).done(function() {
       self.setState({ isLoading: false })
     });
@@ -37,8 +37,8 @@ class TextSubmitter extends React.Component {
     } else {
       return(
         <form  className="form-group" id='feeder'>
-          <textarea value={this.state.value} onChange={this.handleChange.bind(this)}
-            form='feeder' placeholder="Feed me text!" cols="100" rows="20"/>
+          <TextArea onChange={this.handleChange.bind(this)} text={this.state.value}
+                    enabled={this.props.editable}/>
           <br/>
           <input className='btn btn-default' type='submit' value='Submit'
             onClick={this.handleSubmit.bind(this)}/>

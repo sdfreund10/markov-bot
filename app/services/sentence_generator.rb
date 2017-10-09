@@ -1,13 +1,16 @@
 # frozen_string_literal: true
 
 class SentenceGenerator
-  def initialize
-    @seed = Seed.find(rand(Seed.count)).word
+  def initialize(user = nil)
+    @user_id = user&.id || User.ids
+    @seed = Seed.where(user_id: @user_id).offset(rand(Seed.count)).first
     @dictionary = create_dictionary
   end
 
   def sentence
-    sentence = [@seed]
+    return nil if @seed.nil? || @dictionary.empty?
+
+    sentence = [@seed.word]
     until [".", "?", "!"].include? sentence.last
       sentence << @dictionary[sentence.last.downcase].generate_word
     end

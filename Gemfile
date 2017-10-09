@@ -22,6 +22,8 @@ gem "react-rails"
 gem "slim-rails"
 
 gem "rails_12factor"
+gem "nokogiri"
+gem "nikkou"
 
 group :development, :test do
   gem "capybara", "~> 2.13"
