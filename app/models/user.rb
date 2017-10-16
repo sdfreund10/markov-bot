@@ -13,4 +13,9 @@
 class User < ApplicationRecord
   has_many :sequences
   has_many :seeds
+
+  def clear_data
+    sequences.delete_all
+    seeds.delete_all
+  end
 end

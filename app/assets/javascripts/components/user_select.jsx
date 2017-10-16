@@ -8,23 +8,23 @@ class UserSelect extends React.Component {
     return(
       <form>
         <label className='radio-inline'>
-          <input type='radio' name='userSelect' onClick={this.setUser.bind(this, this.props.me)}
-                 value='me' checked={this.state.selectedOption === 'me'}/>
+          <input type='radio' name='userSelect' onChange={this.setUser.bind(this, this.props.me)}
+                 value='me' checked={this.props.user === this.props.me}/>
           Me
         </label>
         <label className='radio-inline'>
-          <input type='radio' name='userSelect'onClick={this.setUser.bind(this, 'KanyeWest')}
-                 value='Kanye' checked={this.state.selectedOption === 'Kanye'}/>
+          <input type='radio' name='userSelect'onChange={this.setUser.bind(this, 'KanyeWest')}
+                 value='Kanye' checked={this.props.user === 'KanyeWest'}/>
           Kanye
         </label>
         <label className='radio-inline'>
-          <input type='radio' name='userSelect' onClick={this.setUser.bind(this, 'JRTolkien')}
-                 value='J.R.' checked={this.state.selectedOption === 'J.R.'}/>
-          J.R.
+          <input type='radio' name='userSelect' onChange={this.setUser.bind(this, 'JRRTOLKIEN')}
+                 value='J.R.' checked={this.props.user === 'JRRTOLKIEN'}/>
+          J.R.R.
         </label>
         <label className='radio-inline'>
-          <input type='radio' name='userSelect' onClick={this.setUser.bind(this, 'JadenSmith')}
-                 value='Jaden' checked={this.state.selectedOption === 'Jaden'}/>
+          <input type='radio' name='userSelect' onChange={this.setUser.bind(this, 'JadenSmith')}
+                 value='Jaden' checked={this.props.user === 'JadenSmith'}/>
           Jaden
         </label>
       </form>

@@ -14,7 +14,8 @@ class Generator extends React.Component {
       type: "POST",
       data: { user: this.props.user }
     }).done(function (response){
-      self.setState({ sentence: response.sentence })
+      console.log(response);
+      self.setState({ sentence: response.sentence });
       return(response.sentence);
     });
   };

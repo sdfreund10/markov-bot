@@ -11,6 +11,7 @@
 #
 
 class Seed < ApplicationRecord
+  validates_uniqueness_of :word, scope: [:user_id]
   def self.create_or_increment(word, user_id = nil)
     seed = find_or_initialize_by(word: word, user_id: user_id)
 

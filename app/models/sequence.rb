@@ -12,7 +12,7 @@
 #
 
 class Sequence < ApplicationRecord
-  validates_uniqueness_of :current_word, scope: [:next_word]
+  validates_uniqueness_of :current_word, scope: [:next_word, :user_id]
 
   def self.create_or_increment(current, word, user_id = nil)
     sequence = find_or_initialize_by(

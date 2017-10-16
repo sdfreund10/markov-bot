@@ -3,7 +3,7 @@
 class SentenceGenerator
   def initialize(user = nil)
     @user_id = user&.id || User.ids
-    @seed = Seed.where(user_id: @user_id).offset(rand(Seed.count)).first
+    @seed = Seed.where(user_id: @user_id).sample
     @dictionary = create_dictionary
   end
 
@@ -18,7 +18,7 @@ class SentenceGenerator
   end
 
   def create_dictionary
-    Sequence.all.each_with_object({}) do |sequence, dictionary|
+    Sequence.where(user_id: @user_id).each_with_object({}) do |sequence, dictionary|
       dictionary[sequence.current_word] ||= Generator.new
 
       dictionary[sequence.current_word].add(
