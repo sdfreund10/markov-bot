@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: users
@@ -15,7 +17,7 @@ class User < ApplicationRecord
   has_many :seeds
 
   def default?
-    ["JRRTOLKIEN", "KanyeWest"].include? token
+    %w(JRRTOLKIEN KanyeWest).include? token
   end
 
   def cache_key

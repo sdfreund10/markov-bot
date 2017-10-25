@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class KanyeSeed
-  KANYE_TOKEN = "KanyeWest".freeze
+  KANYE_TOKEN = "KanyeWest"
   def initialize(file)
     @file = file
     @user = User.find_by(token: KANYE_TOKEN)

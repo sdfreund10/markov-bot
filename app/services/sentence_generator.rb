@@ -28,7 +28,8 @@ class SentenceGenerator
   end
 
   def create_dictionary
-    Sequence.where(user_id: @user_id).each_with_object({}) do |sequence, dictionary|
+    Sequence.where(user_id: @user_id)
+            .each_with_object({}) do |sequence, dictionary|
       dictionary[sequence.current_word] ||= Generator.new
 
       dictionary[sequence.current_word].add(

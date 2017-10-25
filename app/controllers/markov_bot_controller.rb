@@ -5,6 +5,5 @@ class MarkovBotController < ApplicationController
   def set_user
     cookies[:token] ||= SecureRandom.base64(10)
     @user = User.find_or_create_by(token: cookies[:token])
-
   end
 end

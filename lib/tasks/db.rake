@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :db do
   desc "seeds the database with JRR Tolkien text"
   task seed_tolkien: :environment do
