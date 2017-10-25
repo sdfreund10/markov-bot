@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SentenceProcessorController < ApplicationController
   def new; end
 

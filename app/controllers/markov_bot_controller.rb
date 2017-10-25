@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class MarkovBotController < ApplicationController
   before_action :set_user
   def index; end

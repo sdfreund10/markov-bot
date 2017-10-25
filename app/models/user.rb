@@ -17,7 +17,7 @@ class User < ApplicationRecord
   has_many :seeds
 
   def default?
-    %w(JRRTOLKIEN KanyeWest).include? token
+    %w[JRRTOLKIEN KanyeWest].include? token
   end
 
   def cache_key
