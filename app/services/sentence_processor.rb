@@ -8,7 +8,7 @@ class SentenceProcessor
 
   def seeds
     @string.split(/[\.\?\!]\s/).map do |sentence|
-      sentence.split(" ").first
+      sentence.split(" ").first&.remove(/^["']|["']$/)
     end
   end
 

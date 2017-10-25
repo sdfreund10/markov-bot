@@ -14,6 +14,14 @@ class User < ApplicationRecord
   has_many :sequences
   has_many :seeds
 
+  def default?
+    ["JRRTOLKIEN", "KanyeWest"].include? token
+  end
+
+  def cache_key
+    "#{token}-key"
+  end
+
   def clear_data
     sequences.delete_all
     seeds.delete_all

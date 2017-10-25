@@ -3,18 +3,28 @@
 class SentenceGenerator
   def initialize(user = nil)
     @user_id = user&.id || User.ids
-    @seed = Seed.where(user_id: @user_id).sample
-    @dictionary = create_dictionary
+    @seed = Seed.where(user_id: @user_id).pluck(:word).sample
+    @dictionary = build_dictionary(user)
   end
 
   def sentence
-    return nil if @seed.nil? || @dictionary.empty?
+    return "You haven't trained me yet!" if @seed.nil? || @dictionary.empty?
 
-    sentence = [@seed.word]
+    sentence = Array(@seed)
     until [".", "?", "!"].include? sentence.last
       sentence << @dictionary[sentence.last.downcase].generate_word
     end
     sentence[0..-2].join(" ") + sentence.last
+  end
+
+  def build_dictionary(user)
+    if user.default?
+      Rails.cache.fetch(user.cache_key) do
+        create_dictionary
+      end
+    else
+      create_dictionary
+    end
   end
 
   def create_dictionary
