@@ -65,5 +65,5 @@ These are the things I need/would like to do, roughly in order
 - ~~Add loading indicators~~
 - Css the crap out of the app
 - Add a link to this repo
-- Store sequences with a user/session field
+- ~~Store sequences with a user/session field~~
 
