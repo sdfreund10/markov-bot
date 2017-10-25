@@ -22,11 +22,6 @@ class UserSelect extends React.Component {
                  value='J.R.' checked={this.props.user === 'JRRTOLKIEN'}/>
           J.R.R.
         </label>
-        <label className='radio-inline'>
-          <input type='radio' name='userSelect' onChange={this.setUser.bind(this, 'JadenSmith')}
-                 value='Jaden' checked={this.props.user === 'JadenSmith'}/>
-          Jaden
-        </label>
       </form>
     )
   }
