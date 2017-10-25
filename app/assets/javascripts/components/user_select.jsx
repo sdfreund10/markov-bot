@@ -7,21 +7,12 @@ class UserSelect extends React.Component {
   render() {
     return(
       <form>
-        <label className='radio-inline'>
-          <input type='radio' name='userSelect' onChange={this.setUser.bind(this, this.props.me)}
-                 value='me' checked={this.props.user === this.props.me}/>
-          Me
-        </label>
-        <label className='radio-inline'>
-          <input type='radio' name='userSelect'onChange={this.setUser.bind(this, 'KanyeWest')}
-                 value='Kanye' checked={this.props.user === 'KanyeWest'}/>
-          Kanye
-        </label>
-        <label className='radio-inline'>
-          <input type='radio' name='userSelect' onChange={this.setUser.bind(this, 'JRRTOLKIEN')}
-                 value='J.R.' checked={this.props.user === 'JRRTOLKIEN'}/>
-          J.R.R.
-        </label>
+        <Radio text='Me' checked={this.props.user === this.props.me}
+               onChange={this.setUser.bind(this, this.props.me)}/>
+        <Radio text='J.R.R.' checked={this.props.user === 'JRRTOLKIEN'}
+               onChange={this.setUser.bind(this, 'JRRTOLKIEN')}/>
+        <Radio text='Kanye' checked={this.props.user === 'KanyeWest'}
+               onChange={this.setUser.bind(this, 'KanyeWest')}/>
       </form>
     )
   }
