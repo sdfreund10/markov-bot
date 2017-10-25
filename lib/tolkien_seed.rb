@@ -13,14 +13,11 @@ class TolkienSeed
   end
 
   def self.seed
+    User.find_or_create_by(token: "JRRTOLKIEN").clear_data
+
     Dir[Rails.root.join("lib", "texts", "lotr", "*.txt")].each do |book|
+      puts "Adding #{book}"
       new(book).process
     end
-  end
-
-  def self.wipe_data
-    user = User.find_or_create_by(token: "JRRTOLKIEN")
-    user.sequences.delete_all
-    user.seeds.delete_all
   end
 end

@@ -23,7 +23,7 @@ class User < ApplicationRecord
   end
 
   def clear_data
-    sequences.delete_all
-    seeds.delete_all
+    Sequence.where(user_id: id).delete_all
+    Seed.where(user_id: id).delete_all
   end
 end

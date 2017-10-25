@@ -30,6 +30,7 @@ class KanyeSeed
     User.find_or_create_by(token: KANYE_TOKEN).clear_data
 
     Dir["lib/texts/kanye_lyrics/*.txt"].each do |album|
+      puts "Adding #{album}"
       new(album).process_album
     end
   end
