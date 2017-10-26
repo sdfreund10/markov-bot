@@ -3,8 +3,10 @@
 class Generator
   attr_accessor :dictionary
 
-  def add(word)
-    dictionary.merge!(word)
+  def add(new_word)
+    dictionary.merge!(new_word) do |_word, curr_count, new_count|
+      curr_count + new_count
+    end
   end
 
   def generator
